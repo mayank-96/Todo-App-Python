@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container-fluid" style="padding-left: 360px;padding-top: 70px;">
+  <form action="{{ url_for('delete', task_id=task_id) }}" method="post">
+    {{ form.csrf_token }}
+    <p style="font-size: 25px;color: whitesmoke;">Are you sure you want to delete the following task?</p>
+    <div class="row">
+      <div class="col">
+        <h3 style="color: yellow;">{{ title }}</h3>
+      </div>
+      <div class="col" style="padding-top: 30px;">
+        {{ form.submit(class="btn btn-danger") }}
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Cancel</a>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
